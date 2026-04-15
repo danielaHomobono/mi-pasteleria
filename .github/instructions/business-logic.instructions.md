@@ -283,3 +283,103 @@ Disparar notificación automática que incluya:
 - Experiencia premium
 - Consistencia de precios
 - Escalabilidad futura
+
+---
+
+# 6. Reglas de Autenticación y UX
+
+## Priorizar Guest Checkout
+
+No bloquear la compra con formularios de registro obligatorios.
+
+El sistema debe:
+
+- Permitir comprar sin crear cuenta
+- Minimizar fricción en el checkout
+- Priorizar conversión sobre registro
+
+Motivo:
+
+La mayoría de los clientes de pastelería:
+
+- Compran ocasionalmente
+- No desean crear cuenta
+- Abandonan si el proceso es largo
+
+---
+
+## Post-Purchase Registration
+
+Ofrecer crear cuenta **solo después del pago exitoso**.
+
+Momento ideal:
+
+- Pantalla de confirmación
+- Email post-compra
+- WhatsApp de confirmación
+
+Ejemplo UX:
+
+- "¿Querés guardar tus datos para tu próxima compra?"
+- "Creá tu cuenta en 1 clic"
+
+Beneficios:
+
+- Mejor conversión
+- Experiencia premium
+- Menos fricción
+
+---
+
+## Admin Access
+
+Solo correos autorizados pueden acceder a:
+
+```
+/admin
+```
+
+Ejemplo:
+
+```
+tu_mail@gmail.com
+```
+
+Implementación:
+
+- Lista blanca de emails
+- Validación mediante Supabase Auth
+- Protección en middleware
+
+---
+
+## Seguridad
+
+Usar:
+
+- Supabase Auth
+- Middleware de Next.js
+- Protección de rutas privadas
+
+Rutas protegidas:
+
+- `/admin`
+- `/admin/orders`
+- `/admin/products`
+- `/admin/pickup-slots`
+
+Ejemplo de validación
+
+- Usuario autenticado
+- Email autorizado
+- Rol administrador
+
+---
+
+## Principios UX
+
+- Guest checkout primero
+- Registro opcional
+- Admin seguro
+- Flujo de compra rápido
+- Experiencia premium
